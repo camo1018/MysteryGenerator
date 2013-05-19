@@ -1,5 +1,9 @@
 package pp.GeneratorCore;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
 public class Driver {
 	
 	/**
@@ -9,7 +13,15 @@ public class Driver {
 	
 		// TODO: Implementation
 		
-		// Load Story Data From XML
+		
+		
+		
+		
+	}
+	
+	private void LoadDataFromXML() {
+		
+		// TODO:  Implementation
 		
 	}
 	

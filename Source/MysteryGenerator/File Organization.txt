@@ -1,0 +1,8 @@
+pp.GeneratorCore
+	Contains all the code related to loading the story templates and actually generating a story out of it for use by the game.
+
+pp.GeneratorDataCreator
+	Contains all the code related to editing the story template.
+
+pp.mysterygenerator
+	Actual game driver (subject to changes)

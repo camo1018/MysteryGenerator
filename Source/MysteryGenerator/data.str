@@ -1,0 +1,11 @@
+// 
+ID	1
+Type	MurderWeapon
+Name	Knife
+Attribute	Sharp	
+END
+ID	2
+Type	VictimStatus
+Name	Cut Wound
+Attribute	Sharp
+END
