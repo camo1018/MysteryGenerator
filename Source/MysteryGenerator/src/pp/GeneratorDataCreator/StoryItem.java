@@ -1,5 +1,6 @@
-package pp.GeneratorDataCreator;
+package pp.generatordatacreator;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -11,21 +12,21 @@ import java.util.HashMap;
 
 public class StoryItem {
 	
-	private HashMap<String, String> dataMap;
+	private HashMap<String, ArrayList<String>> dataMap;
 	
 	public StoryItem() {
-		dataMap = new HashMap<String, String>();
+		dataMap = new HashMap<String, ArrayList<String>>();
 	}
 	
-	public void SetItem(String type, String value) {
-		dataMap.put(type, value);
+	public void SetItem(String type, ArrayList<String> values) {
+		dataMap.put(type, values);
 	}
 	
 	public void RemoveItem(String type) {
 		dataMap.remove(type);
 	}
 	
-	public HashMap<String, String> getMap() {
+	public HashMap<String, ArrayList<String>> getMap() {
 		return dataMap;
 	}
 	

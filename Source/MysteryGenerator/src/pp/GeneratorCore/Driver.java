@@ -1,4 +1,4 @@
-package pp.GeneratorCore;
+package pp.generatorcore;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
