@@ -1,5 +1,10 @@
 package pp.generatorcore;
 
+import java.util.ArrayList;
+
+import pp.generatordatacreator.DataCreator;
+import pp.generatordatacreator.StoryItem;
+
 public class Driver {
 	
 	/**
@@ -7,17 +12,8 @@ public class Driver {
 	 */
 	public Driver() {
 	
-		// TODO: Implementation
-		
-		
-		
-		
-		
-	}
-	
-	private void loadDataFromXML() {
-		
-		// TODO:  Implementation
+		DataCreator dataHandler = new DataCreator();
+		ArrayList<StoryItem> itemsList = dataHandler.getItemArray();
 		
 	}
 	

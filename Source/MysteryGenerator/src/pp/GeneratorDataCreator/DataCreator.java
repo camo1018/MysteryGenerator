@@ -85,14 +85,15 @@ public class DataCreator {
 		// Get what to write.
 		String content = "";
 		for (int i = 0; i < itemArray.size(); i++) {
-			content+="newitem\n";
+			content+="newitem\r\n";
 			StoryItem item = itemArray.get(i);
 			HashMap<String, ArrayList<String>> map = item.getMap();
 			Set<String> keySet = map.keySet();
 			Iterator<String> iter = keySet.iterator();
 			// Write the attributes of an item.
 			String currItem = null;
-			while ((currItem = iter.next()) != null) {
+			while (iter.hasNext()) {
+				currItem = iter.next();
 				// Write the type field.
 				content+= currItem + "\t";
 				ArrayList<String> list = map.get(currItem);
@@ -101,11 +102,11 @@ public class DataCreator {
 					content+= list.get(c) + "\t";
 				}
 				// Once we are done with the attribute, add a new line.
-				content+= "\n";
+				content+= "\r\n";
 			}
 			
 			// We are done with the item.
-			content+= "enditem\n";
+			content+= "enditem\r\n";
 			
 		}
 		
