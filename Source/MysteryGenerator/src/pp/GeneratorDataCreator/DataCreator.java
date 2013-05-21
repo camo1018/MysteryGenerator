@@ -57,7 +57,7 @@ public class DataCreator {
 					for (int i = 1; i < splitLine.length; i++) {
 						values.add(splitLine[i]);
 					}
-					currStoryItem.SetItem(type, values);
+					currStoryItem.setItem(type, values);
 				}	
 
 			}
@@ -80,7 +80,7 @@ public class DataCreator {
 	/**
 	 * Writes the story data to file.
 	 */
-	public void WriteToFile() {
+	public void writeToFile() {
 
 		// Get what to write.
 		String content = "";
@@ -138,20 +138,15 @@ public class DataCreator {
 	/**
 	 * Add a story item to itemArray.
 	 */
-	public void AddStoryItem(StoryItem strItem) {
+	public void addStoryItem(StoryItem strItem) {
 		itemArray.add(strItem);
 	}
 	
 	/**
 	 * Remove a story item with the specified index from itemArray.
 	 */
-	public void RemoveStoryItem(int index) {
+	public void removeStoryItem(int index) {
 		itemArray.remove(index);
-	}
-	
-	// Test Drivers
-	public static void main(String[] args) {
-		DataCreator creator = new DataCreator();
 	}
 
 }

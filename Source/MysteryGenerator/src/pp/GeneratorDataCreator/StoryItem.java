@@ -18,14 +18,38 @@ public class StoryItem {
 		dataMap = new HashMap<String, ArrayList<String>>();
 	}
 	
-	public void SetItem(String type, ArrayList<String> values) {
+	/**
+	 * Set the attribute of the Story Item using one value.
+	 * @param type
+	 * @param value
+	 */
+	public void setItem(String type, String value) {
+		ArrayList<String> list = new ArrayList<String>();
+		list.add(value);
+		dataMap.put(type, list);
+	}
+	
+	/**
+	 * Set the attribute of the Story Item using multiple values.
+	 * @param type
+	 * @param values
+	 */
+	public void setItem(String type, ArrayList<String> values) {
 		dataMap.put(type, values);
 	}
 	
-	public void RemoveItem(String type) {
+	/**
+	 * Removes an attribute with the specified type.
+	 * @param type
+	 */
+	public void removeItem(String type) {
 		dataMap.remove(type);
 	}
 	
+	/**
+	 * Returns the data map.
+	 * @return
+	 */
 	public HashMap<String, ArrayList<String>> getMap() {
 		return dataMap;
 	}
