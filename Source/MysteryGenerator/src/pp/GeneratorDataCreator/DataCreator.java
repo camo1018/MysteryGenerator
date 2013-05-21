@@ -7,6 +7,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * Loads the data content for story generation for editing.
@@ -63,6 +66,7 @@ public class DataCreator {
 
 		catch (IOException e) {
 			// File is not found.  Create one.
+			System.out.println("data.str not found.  Creating a new one...");
 			File file = new File("data.str");
 			try {
 				file.createNewFile();
@@ -81,7 +85,28 @@ public class DataCreator {
 		// Get what to write.
 		String content = "";
 		for (int i = 0; i < itemArray.size(); i++) {
-			// TODO Implement
+			content+="newitem\n";
+			StoryItem item = itemArray.get(i);
+			HashMap<String, ArrayList<String>> map = item.getMap();
+			Set<String> keySet = map.keySet();
+			Iterator<String> iter = keySet.iterator();
+			// Write the attributes of an item.
+			String currItem = null;
+			while ((currItem = iter.next()) != null) {
+				// Write the type field.
+				content+= currItem + "\t";
+				ArrayList<String> list = map.get(currItem);
+				for (int c = 0; c < list.size(); c++) {
+					// Get the values and tabulate (is that a word?) them.
+					content+= list.get(c) + "\t";
+				}
+				// Once we are done with the attribute, add a new line.
+				content+= "\n";
+			}
+			
+			// We are done with the item.
+			content+= "enditem\n";
+			
 		}
 		
 		try {
@@ -109,7 +134,24 @@ public class DataCreator {
 	public ArrayList<StoryItem> getItemArray() {
 		return itemArray;
 	}
-
-
+	
+	/**
+	 * Add a story item to itemArray.
+	 */
+	public void AddStoryItem(StoryItem strItem) {
+		itemArray.add(strItem);
+	}
+	
+	/**
+	 * Remove a story item with the specified index from itemArray.
+	 */
+	public void RemoveStoryItem(int index) {
+		itemArray.remove(index);
+	}
+	
+	// Test Drivers
+	public static void main(String[] args) {
+		DataCreator creator = new DataCreator();
+	}
 
 }

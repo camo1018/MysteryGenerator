@@ -1,13 +1,11 @@
 // 
-newitem
 ID	1
 Type	MurderWeapon
 Name	Knife
 Attribute	Sharp	
-enditem
-newitem
+END
 ID	2
 Type	VictimStatus
 Name	Cut Wound
 Attribute	Sharp
-enditem
+END
