@@ -27,8 +27,18 @@ public class DataCreator {
 		// Load the data from resources.
 		itemArray = new ArrayList<StoryItem>();
 
+		
+	}
+	
+	/**
+	 * Read from str file with specified file path.
+	 * 
+	 * @param filePath
+	 */
+	public void readFromFile(String filePath) {
+		
 		try {
-			reader = new BufferedReader(new FileReader("data.str"));
+			reader = new BufferedReader(new FileReader(filePath));
 			String line = null;
 			StoryItem currStoryItem = null;
 
@@ -66,8 +76,8 @@ public class DataCreator {
 
 		catch (IOException e) {
 			// File is not found.  Create one.
-			System.out.println("data.str not found.  Creating a new one...");
-			File file = new File("data.str");
+			System.out.println("File not found at the specified path.  Creating a new one...");
+			File file = new File(filePath);
 			try {
 				file.createNewFile();
 			}
@@ -80,7 +90,7 @@ public class DataCreator {
 	/**
 	 * Writes the story data to file.
 	 */
-	public void writeToFile() {
+	public void writeToFile(String filePath) {
 
 		// Get what to write.
 		String content = "";
@@ -111,7 +121,7 @@ public class DataCreator {
 		}
 		
 		try {
-			File file = new File("data.str");
+			File file = new File(filePath);
 
 			// Check if the file exists.  Shouldn't need this but just in case.
 			if (!file.exists()) {
