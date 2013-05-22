@@ -1,8 +1,5 @@
 package pp.generatorcore;
 
-import java.util.ArrayList;
-
-import pp.generatordatacreator.StoryItem;
 
 public class Driver {
 	
@@ -11,7 +8,7 @@ public class Driver {
 	 */
 	public Driver() {
 	
-		LogicHandler logicHandler = new LogicHandler();
+		MurderGenerator logicHandler = new MurderGenerator();
 		
 	}
 	

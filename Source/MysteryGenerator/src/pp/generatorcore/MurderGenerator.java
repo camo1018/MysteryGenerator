@@ -1,7 +1,5 @@
 package pp.generatorcore;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -9,11 +7,11 @@ import pp.generatordatacreator.DataCreator;
 import pp.generatordatacreator.StoryItem;
 
 /**
- * LogicHandler is responsible for picking certain story elements that are critical in a mystery plot, such as the murder weapon, murder location, victim type, murder type, and etc.
- * @author PaulPa
+ * MurderGenerator generates all the components to the actual murder itself.
+ * @author Paul
  *
  */
-public class LogicHandler {
+public class MurderGenerator {
 	
 	DataCreator dataHandler;
 	
@@ -23,7 +21,7 @@ public class LogicHandler {
 	
 	
 	
-	public LogicHandler() {
+	public MurderGenerator() {
 		dataHandler = new DataCreator();
 		
 		// Get murder weapon list
