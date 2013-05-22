@@ -19,26 +19,25 @@ import java.util.Set;
 
 public class DataCreator {
 
-	private BufferedReader reader;
 	private ArrayList<StoryItem> itemArray;
 
 	public DataCreator() {
 
-		// Load the data from resources.
-		itemArray = new ArrayList<StoryItem>();
 
-		
 	}
-	
+
 	/**
 	 * Read from str file with specified file path.
 	 * 
 	 * @param filePath
 	 */
-	public void readFromFile(String filePath) {
-		
+	public ArrayList<StoryItem> readFromFile(String filePath) {
+
+		// Load the data from resources.
+		itemArray = new ArrayList<StoryItem>();
+
 		try {
-			reader = new BufferedReader(new FileReader(filePath));
+			BufferedReader reader = new BufferedReader(new FileReader(filePath));
 			String line = null;
 			StoryItem currStoryItem = null;
 
@@ -71,7 +70,7 @@ public class DataCreator {
 				}	
 
 			}
-
+			reader.close();
 		}
 
 		catch (IOException e) {
@@ -85,6 +84,8 @@ public class DataCreator {
 				ee.printStackTrace();
 			}
 		}
+		
+		return itemArray;
 	}
 
 	/**
@@ -114,12 +115,12 @@ public class DataCreator {
 				// Once we are done with the attribute, add a new line.
 				content+= "\r\n";
 			}
-			
+
 			// We are done with the item.
 			content+= "enditem\r\n";
-			
+
 		}
-		
+
 		try {
 			File file = new File(filePath);
 
@@ -127,7 +128,7 @@ public class DataCreator {
 			if (!file.exists()) {
 				file.createNewFile();
 			}
-			
+
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);
 			writer.write(content);
@@ -145,14 +146,14 @@ public class DataCreator {
 	public ArrayList<StoryItem> getItemArray() {
 		return itemArray;
 	}
-	
+
 	/**
 	 * Add a story item to itemArray.
 	 */
 	public void addStoryItem(StoryItem strItem) {
 		itemArray.add(strItem);
 	}
-	
+
 	/**
 	 * Remove a story item with the specified index from itemArray.
 	 */
