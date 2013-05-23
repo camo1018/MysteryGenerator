@@ -1,8 +1,6 @@
 package pp.generatordatacreator;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Set;
 
 /**
  * StoryItem object represents a single story item that the creator loads in from the database.
@@ -13,10 +11,10 @@ import java.util.Set;
 
 public class StoryItem {
 	
-	private HashMap<String, ArrayList<String>> dataMap;
+	private HashMap<String, String> dataMap;
 	
 	public StoryItem() {
-		dataMap = new HashMap<String, ArrayList<String>>();
+		dataMap = new HashMap<String, String>();
 	}
 	
 	/**
@@ -25,18 +23,7 @@ public class StoryItem {
 	 * @param value
 	 */
 	public void setItem(String type, String value) {
-		ArrayList<String> list = new ArrayList<String>();
-		list.add(value);
-		dataMap.put(type, list);
-	}
-	
-	/**
-	 * Set the attribute of the Story Item using multiple values.
-	 * @param type
-	 * @param values
-	 */
-	public void setItem(String type, ArrayList<String> values) {
-		dataMap.put(type, values);
+		dataMap.put(type, value);
 	}
 	
 	/**
@@ -51,21 +38,8 @@ public class StoryItem {
 	 * Returns the data map.
 	 * @return
 	 */
-	public HashMap<String, ArrayList<String>> getMap() {
+	public HashMap<String, String> getMap() {
 		return dataMap;
-	}
-	
-	public String toString() {
-		Set<String> keySet = dataMap.keySet();
-		String toRet = "";
-		for (String str : keySet) {
-			toRet += str + "\t";
-			for (String value : dataMap.get(str)) {
-				toRet += value + "\t";
-			}
-			toRet += "\n";
-		}
-		return toRet;
 	}
 	
 }

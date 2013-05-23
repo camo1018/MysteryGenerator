@@ -61,12 +61,8 @@ public class DataCreator {
 					// Break the line into pieces.  Separation between type and value will be done with \t.  The first tab will be the type.  All the indices that follow are values.
 					String[] splitLine = line.split("\t");
 					String type = splitLine[0];
-					ArrayList<String> values = new ArrayList<String>();
-					// Load up all the values
-					for (int i = 1; i < splitLine.length; i++) {
-						values.add(splitLine[i]);
-					}
-					currStoryItem.setItem(type, values);
+					String value = splitLine[1];
+					currStoryItem.setItem(type, value);
 				}	
 
 			}
@@ -98,7 +94,7 @@ public class DataCreator {
 		for (int i = 0; i < itemArray.size(); i++) {
 			content+="newitem\r\n";
 			StoryItem item = itemArray.get(i);
-			HashMap<String, ArrayList<String>> map = item.getMap();
+			HashMap<String, String> map = item.getMap();
 			Set<String> keySet = map.keySet();
 			Iterator<String> iter = keySet.iterator();
 			// Write the attributes of an item.
@@ -107,11 +103,8 @@ public class DataCreator {
 				currItem = iter.next();
 				// Write the type field.
 				content+= currItem + "\t";
-				ArrayList<String> list = map.get(currItem);
-				for (int c = 0; c < list.size(); c++) {
-					// Get the values and tabulate (is that a word?) them.
-					content+= list.get(c) + "\t";
-				}
+				// Get the value
+				content+= item.getMap().get(currItem);
 				// Once we are done with the attribute, add a new line.
 				content+= "\r\n";
 			}
