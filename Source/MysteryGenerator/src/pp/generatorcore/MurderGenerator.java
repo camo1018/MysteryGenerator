@@ -13,17 +13,23 @@ import pp.generatordatacreator.StoryItem;
  */
 public class MurderGenerator {
 	
-	DataCreator dataHandler;
+	private DataCreator dataHandler;
 	
-	ArrayList<StoryItem> murderWeaponsList;
-	ArrayList<StoryItem> victimStatesList;
+	private ArrayList<StoryItem> murderWeaponsList;
+	private ArrayList<StoryItem> victimStatesList;
+	private ArrayList<StoryItem> locationsList;
+	private ArrayList<StoryItem> murdererStatesList;
 	
-	StoryItem murderWeapon;
-	StoryItem fatalWound;
+	public StoryItem murderWeapon;
+	public StoryItem fatalWound;
+	public StoryItem murderLocation;
+	public ArrayList<StoryItem> murdererStates;
 	
 	// Constants
-	final int MIN_VICTIM_STATES_COUNT = 5; // Minimum number of states a victim could have
-	final int ADD_VICTIM_STATES_COUNT = 3; // Maximum number of states a victim could have over the minimum count
+	final private int MIN_MURDERER_STATES_COUNT = 1; // Minimum number of states a victim could have.  If the number is too big, then it won't get there most likely.
+	final private int MAX_MURDERER_STATES_COUNT = 3;
+	//final private int MIN_VICTIM_STATES_COUNT = 5; // Minimum number of states a victim could have
+	//final private int ADD_VICTIM_STATES_COUNT = 3; // Maximum number of states a victim could have over the minimum count
 	
 	
 	
@@ -34,6 +40,8 @@ public class MurderGenerator {
 		murderWeaponsList = dataHandler.readFromFile("murderWeapons.str");
 		// Get victim state list
 		victimStatesList = dataHandler.readFromFile("victimStates.str");
+		// Get murder locations list
+		locationsList = dataHandler.readFromFile("locations.str");
 	}
 	
 	// It's probably good to start with a murder weapon.  It lets us then determine the wound type, and etc.
@@ -54,6 +62,34 @@ public class MurderGenerator {
 		// Choose a random wound from the filtered list
 		fatalWound = filteredList.get(rand.nextInt(filteredList.size()));
 	}
+	
+	// Where was the victim killed?  This usually has nothing to do with the previous two items, but keep in mind this is going to affect other locations
+	// that will be determined later.
+	public void chooseMurderLocation() {
+		Random rand = new Random();
+		
+		murderLocation = locationsList.get(rand.nextInt(locationsList.size()));
+	}
+	
+	// What was the murderer wearing?  This will affect whether his face was seen or whether fingerprints can be found on the murder weapon.
+	public void chooseMurdererStates() {
+		murdererStates = new ArrayList<StoryItem>();
+		Random rand = new Random();
+		int diffRand = MAX_MURDERER_STATES_COUNT - MIN_MURDERER_STATES_COUNT;
+		
+		for (int i = 0; i < MIN_MURDERER_STATES_COUNT + rand.nextInt(diffRand); i++) {
+			StoryItem item = murdererStatesList.get(rand.nextInt(murdererStatesList.size()));
+			if (!LogicHandler.doesStoryItemWithSameValueOfSpecifiedTypeExistInList(item, "type", murdererStates)) {
+				murdererStates.add(item);
+			}
+		}
+	}
+	
+	public void chooseVictimName() {
+		
+	}
+	
+	
 	
 	
 	

@@ -16,4 +16,14 @@ public class LogicHandler {
 		return filteredList;
 	}
 	
+	// Check if the given list contains a story item whose value of a given type equals to a given story item.
+	public static boolean doesStoryItemWithSameValueOfSpecifiedTypeExistInList(StoryItem item, String type, ArrayList<StoryItem> list) {
+		for (StoryItem itemInList : list) {
+			if (itemInList.getMap().get(type).equals(item.getMap().get(type))) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 }
