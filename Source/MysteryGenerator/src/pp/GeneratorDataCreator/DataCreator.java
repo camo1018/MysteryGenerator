@@ -19,19 +19,15 @@ import java.util.Set;
 
 public class DataCreator {
 
-	private ArrayList<StoryItem> itemArray;
-
-	public DataCreator() {
-
-
-	}
+	// This field to access the last loaded array of StoryItems for use by the data creator tool.
+	public static ArrayList<StoryItem> itemArray;
 
 	/**
 	 * Read from str file with specified file path.
 	 * 
 	 * @param filePath
 	 */
-	public ArrayList<StoryItem> readFromFile(String filePath) {
+	public static ArrayList<StoryItem> readFromFile(String filePath) {
 
 		// Load the data from resources.
 		itemArray = new ArrayList<StoryItem>();
