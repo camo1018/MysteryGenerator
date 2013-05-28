@@ -20,6 +20,7 @@ public class MurderGenerator {
 	public static ArrayList<StoryItem> murdererStates;
 	public static Name victimName;
 	public static Name murdererName;
+	public static StoryItem murderMotive;
 	
 	// Constants
 	final private static int MIN_MURDERER_STATES_COUNT = 1; // Minimum number of states a victim could have.  If the number is too big, then it won't get there most likely.
@@ -91,7 +92,9 @@ public class MurderGenerator {
 	
 	// What is the murderer's motive.  This is a complex decision for the generator to make.
 	public static void chooseMotives() {
+		Random rand = new Random();
 		
+		murderMotive = DataLoader.motivesList.get(rand.nextInt(DataLoader.motivesList.size()));
 	}
 	
 	
