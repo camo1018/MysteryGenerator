@@ -5,6 +5,7 @@ import java.util.Random;
 
 import pp.common.DataLoader;
 import pp.common.Name;
+import pp.common.Time;
 import pp.generatordatacreator.StoryItem;
 
 /**
@@ -21,6 +22,7 @@ public class MurderGenerator {
 	public static Name victimName;
 	public static Name murdererName;
 	public static StoryItem murderMotive;
+	public static Time murderTime;
 	
 	// Constants
 	final private static int MIN_MURDERER_STATES_COUNT = 1; // Minimum number of states a victim could have.  If the number is too big, then it won't get there most likely.
@@ -95,6 +97,22 @@ public class MurderGenerator {
 		Random rand = new Random();
 		
 		murderMotive = DataLoader.motivesList.get(rand.nextInt(DataLoader.motivesList.size()));
+	}
+	
+	// When was the victim killed?  This will set the stage for rest of the time-based settings.
+	public static void chooseMurderTime() {
+		Random rand = new Random();
+		
+		// Month
+		int month = rand.nextInt(12) + 1;
+		// Day
+		int day = rand.nextInt(Time.getDaysForMonth(month)) + 1;
+		// Hour
+		int hour = rand.nextInt(24) + 1;
+		// Minute
+		int minute = rand.nextInt(60);
+		
+		murderTime = new Time(month, day, hour, minute);		
 	}
 	
 	

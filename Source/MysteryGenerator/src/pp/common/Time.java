@@ -30,4 +30,31 @@ public class Time {
 		return minute;
 	}
 	
+	/* Not needed
+	public static boolean isLeapYear(int year) {
+		if (year % 400 == 0)
+			return true;
+		else if (year % 100 == 0)
+			return false;
+		else if (year % 4 == 0)
+			return true;
+		else
+			return false;
+	}
+	*/
+	
+	/**
+	 * Given a month, generate a day that fits within that month.
+	 * @return
+	 */
+	public static int getDaysForMonth(int month) {
+		// Odd months
+		if (month % 2 == 1)
+			return 31;
+		else if (month % 2 == 0 && month != 2)
+			return 30;
+		else
+			return 29;
+	}
+	
 }
