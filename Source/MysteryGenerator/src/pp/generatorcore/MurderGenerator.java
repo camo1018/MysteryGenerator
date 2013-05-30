@@ -30,11 +30,6 @@ public class MurderGenerator {
 	//final private static int MIN_VICTIM_STATES_COUNT = 5; // Minimum number of states a victim could have
 	//final private static int ADD_VICTIM_STATES_COUNT = 3; // Maximum number of states a victim could have over the minimum count
 	
-	
-	
-	public MurderGenerator() {
-	}
-	
 	// It's probably good to start with a murder weapon.  It lets us then determine the wound type, and etc.
 	public static void chooseMurderWeapon() {
 		Random rand = new Random();
