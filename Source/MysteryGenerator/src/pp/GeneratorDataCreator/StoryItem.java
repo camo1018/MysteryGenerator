@@ -1,6 +1,7 @@
 package pp.generatordatacreator;
 
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * StoryItem object represents a single story item that the creator loads in from the database.
@@ -40,6 +41,15 @@ public class StoryItem {
 	 */
 	public HashMap<String, String> getMap() {
 		return dataMap;
+	}
+	
+	public String toString() {
+		Set<String> set = dataMap.keySet();
+		String result = "";
+		for (String str : set) {
+			result+= str + " - " + dataMap.get(str) + ", ";
+		}
+		return result;
 	}
 	
 }

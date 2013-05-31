@@ -1,0 +1,30 @@
+newitem
+Name	Neck Cut
+Type	Wound
+Cause	Bleeding
+enditem
+newitem
+Name	Stomach Stab Wound
+Type	Wound
+Cause	Bleeding
+enditem
+newitem
+Name	Back Stab
+Type	Wound
+Cause	Bleeding
+enditem
+newitem
+Name	Head Bruise
+Type	Wound
+Cause	Blunt
+enditem
+newitem
+Name	Temple Bruise
+Type	Wound
+Cause	Blunt
+enditem
+newitem
+Name	Gunshot Wound
+Type	Wound
+Cause	Gunshot
+enditem

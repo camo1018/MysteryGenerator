@@ -36,7 +36,7 @@ public class MurderGenerator {
 	}
 	
 	// It's probably good to start with a murder weapon.  It lets us then determine the wound type, and etc.
-	public static void chooseMurderWeapon() {
+	private static void chooseMurderWeapon() {
 		Random rand = new Random();
 		int randIndex = rand.nextInt(DataLoader.murderWeaponsList.size());
 		murderWeapon = DataLoader.murderWeaponsList.get(randIndex);		
@@ -44,7 +44,7 @@ public class MurderGenerator {
 	
 	
 	// What wound killed the victim?  It's important to distinguish the fatal wound from "distraction" wounds that will come up later.
-	public static void chooseFatalWound() {
+	private static void chooseFatalWound() {
 		Random rand = new Random();
 		
 		ArrayList<StoryItem> filteredList = LogicHandler.getStoryItemsWithFollowingAttributeFromList("Type", "Wound", DataLoader.victimStatesList);
@@ -56,14 +56,14 @@ public class MurderGenerator {
 	
 	// Where was the victim killed?  This usually has nothing to do with the previous two items, but keep in mind this is going to affect other locations
 	// that will be determined later.
-	public static void chooseMurderLocation() {
+	private static void chooseMurderLocation() {
 		Random rand = new Random();
 		
 		murderLocation = DataLoader.locationsList.get(rand.nextInt(DataLoader.locationsList.size()));
 	}
 	
 	// What was the murderer wearing?  This will affect whether his face was seen or whether fingerprints can be found on the murder weapon.
-	public static void chooseMurdererStates() {
+	private static void chooseMurdererStates() {
 		murdererStates = new ArrayList<StoryItem>();
 		Random rand = new Random();
 		int diffRand = MAX_MURDERER_STATES_COUNT - MIN_MURDERER_STATES_COUNT;
@@ -77,7 +77,7 @@ public class MurderGenerator {
 	}
 	
 	// Randomly generate the victim's name.
-	public static void chooseVictimName() {
+	private static void chooseVictimName() {
 		Random rand = new Random();
 		
 		StoryItem nameStoryItem = DataLoader.namesList.get(rand.nextInt(DataLoader.namesList.size()));
@@ -85,7 +85,7 @@ public class MurderGenerator {
 	}
 	
 	// Randomly generate the murderer's name.
-	public static void chooseMurdererName() {
+	private static void chooseMurdererName() {
 		Random rand = new Random();
 		
 		StoryItem nameStoryItem = DataLoader.namesList.get(rand.nextInt(DataLoader.namesList.size()));
@@ -93,14 +93,14 @@ public class MurderGenerator {
 	}
 	
 	// What is the murderer's motive.  This is a complex decision for the generator to make.
-	public static void chooseMotives() {
+	private static void chooseMotives() {
 		Random rand = new Random();
 		
 		murderMotive = DataLoader.motivesList.get(rand.nextInt(DataLoader.motivesList.size()));
 	}
 	
 	// When was the victim killed?  This will set the stage for rest of the time-based settings.
-	public static void chooseMurderTime() {
+	private static void chooseMurderTime() {
 		Random rand = new Random();
 		
 		// Month
@@ -113,6 +113,20 @@ public class MurderGenerator {
 		int minute = rand.nextInt(60);
 		
 		murderTime = new Time(month, day, hour, minute);		
+	}
+	
+	/**
+	 * Macro to generate all the circumstances of the murder.
+	 */
+	public static void generateMurder() {
+		chooseMurderWeapon();
+		chooseFatalWound();
+		chooseMurderLocation();
+		chooseMurdererStates();
+		chooseVictimName();
+		chooseMurdererName();
+		chooseMotives();
+		chooseMurderTime();
 	}
 	
 	

@@ -1,0 +1,119 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (javaClasses.cpp:129), pid=8216, tid=8248
+#  fatal error: Invalid layout of preloaded class
+#
+# JRE version: 7.0_21-b11
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (23.21-b01 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000000028d000):  JavaThread "Unknown thread" [_thread_in_vm, id=8248, stack(0x0000000002bb0000,0x0000000002cb0000)]
+
+Stack: [0x0000000002bb0000,0x0000000002cb0000]
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x000000000028d000 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=8248, stack(0x0000000002bb0000,0x0000000002cb0000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 0.009 loading class 0x000000000286c9c0 done
+Event: 0.009 loading class 0x0000000002822850 done
+Event: 0.009 loading class 0x0000000002822820
+Event: 0.009 loading class 0x00000000028752d0
+Event: 0.009 loading class 0x00000000028752d0 done
+Event: 0.009 loading class 0x0000000002875310
+Event: 0.009 loading class 0x0000000002875310 done
+Event: 0.009 loading class 0x000000000c06d9f0
+Event: 0.009 loading class 0x000000000c06d9f0 done
+Event: 0.009 loading class 0x0000000002822820 done
+
+
+Dynamic libraries:
+0x000000013fe90000 - 0x000000013fec3000 	C:\Program Files\Java\jre7\bin\javaw.exe
+0x0000000077a40000 - 0x0000000077be9000 	C:\Windows\SYSTEM32\ntdll.dll
+0x0000000077610000 - 0x000000007772f000 	C:\Windows\system32\kernel32.dll
+0x000007fefdf50000 - 0x000007fefdfbb000 	C:\Windows\system32\KERNELBASE.dll
+0x0000000075250000 - 0x00000000752e5000 	C:\Windows\System32\SYSFER.DLL
+0x000007feff4c0000 - 0x000007feff59b000 	C:\Windows\system32\ADVAPI32.dll
+0x000007feffc50000 - 0x000007feffcef000 	C:\Windows\system32\msvcrt.dll
+0x000007feffb10000 - 0x000007feffb2f000 	C:\Windows\SYSTEM32\sechost.dll
+0x000007feff7d0000 - 0x000007feff8fd000 	C:\Windows\system32\RPCRT4.dll
+0x0000000077730000 - 0x000000007782a000 	C:\Windows\system32\USER32.dll
+0x000007feff420000 - 0x000007feff487000 	C:\Windows\system32\GDI32.dll
+0x000007feff410000 - 0x000007feff41e000 	C:\Windows\system32\LPK.dll
+0x000007feff5f0000 - 0x000007feff6b9000 	C:\Windows\system32\USP10.dll
+0x000007fefc120000 - 0x000007fefc314000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_fa396087175ac9ac\COMCTL32.dll
+0x000007feffbd0000 - 0x000007feffc41000 	C:\Windows\system32\SHLWAPI.dll
+0x000007feff490000 - 0x000007feff4be000 	C:\Windows\system32\IMM32.DLL
+0x000007feff6c0000 - 0x000007feff7c9000 	C:\Windows\system32\MSCTF.dll
+0x000007fefde60000 - 0x000007fefdea0000 	C:\Windows\system32\nvinitx.dll
+0x000000000f000000 - 0x000000000f006000 	C:\Program Files\NVIDIA Corporation\CoProcManager\_etoured.dll
+0x000007fefab50000 - 0x000007fefaba6000 	C:\Program Files\NVIDIA Corporation\CoProcManager\nvd3d9wrapx.dll
+0x000007fefe270000 - 0x000007fefe447000 	C:\Windows\system32\SETUPAPI.dll
+0x000007fefe130000 - 0x000007fefe166000 	C:\Windows\system32\CFGMGR32.dll
+0x000007feff9b0000 - 0x000007feffa87000 	C:\Windows\system32\OLEAUT32.dll
+0x000007feff200000 - 0x000007feff403000 	C:\Windows\system32\ole32.dll
+0x000007fefe250000 - 0x000007fefe26a000 	C:\Windows\system32\DEVOBJ.dll
+0x000007fefab10000 - 0x000007fefab4d000 	C:\Program Files\NVIDIA Corporation\CoProcManager\nvdxgiwrapx.dll
+0x0000000010000000 - 0x000000001004c000 	C:\Windows\system32\AMINIT64.DLL
+0x00000000789c0000 - 0x0000000078a91000 	C:\Program Files\Java\jre7\bin\msvcr100.dll
+0x000000006e690000 - 0x000000006edb1000 	C:\Program Files\Java\jre7\bin\server\jvm.dll
+0x000007fef8770000 - 0x000007fef8779000 	C:\Windows\system32\WSOCK32.dll
+0x000007feff5a0000 - 0x000007feff5ed000 	C:\Windows\system32\WS2_32.dll
+0x000007feff9a0000 - 0x000007feff9a8000 	C:\Windows\system32\NSI.dll
+0x000007fefb7c0000 - 0x000007fefb7fb000 	C:\Windows\system32\WINMM.dll
+0x0000000077c10000 - 0x0000000077c17000 	C:\Windows\system32\PSAPI.DLL
+0x00000000624a0000 - 0x00000000624af000 	C:\Program Files\Java\jre7\bin\verify.dll
+0x000000005dfa0000 - 0x000000005dfc8000 	C:\Program Files\Java\jre7\bin\java.dll
+0x000000005dfe0000 - 0x000000005dff5000 	C:\Program Files\Java\jre7\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=Cp1252 -Xbootclasspath:C:\Android SDK\sdk\platforms\android-17\android.jar 
+java_command: pp.generatorcore.Driver
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Common Files\Roxio Shared\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\10.0\DLLShared\;C:\Program Files (x86)\Voltage Security\Voltage SecureMail\;C:\Program Files (x86)\Common Files\Voltage Security\;C:\Program Files\Voltage Security\Voltage SecureMail\;C:\Program Files\Common Files\Voltage Security\;C:\Program Files (x86)\Common Files\Check Point\UIFramework 3.0\Bin\;C:\Program Files (x86)\CheckPoint\Endpoint Security\Endpoint Common\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files\Gallio\bin
+USERNAME=PaulPa
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7601 Service Pack 1
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, ht, tsc, tscinvbit, tscinv
+
+Memory: 4k page, physical 8258940k(4096944k free), swap 16516020k(11570192k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (23.21-b01) for windows-amd64 JRE (1.7.0_21-b11), built on Apr  4 2013 08:11:28 by "java_re" with unknown MS VC++:1600
+
+time: Thu May 30 23:28:09 2013
+elapsed time: 0 seconds
+

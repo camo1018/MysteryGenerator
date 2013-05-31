@@ -57,4 +57,10 @@ public class Time {
 			return 29;
 	}
 	
+	public String toString() {
+		String result = "";
+		result+= month+"/"+day+" "+hour+":"+minute;
+		return result;
+	}
+	
 }

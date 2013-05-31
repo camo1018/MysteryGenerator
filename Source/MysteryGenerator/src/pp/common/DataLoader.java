@@ -16,17 +16,17 @@ public class DataLoader {
 
 	public static void loadAllFiles() {
 		// Get murder weapon list
-		murderWeaponsList = DataCreator.readFromFile("murderWeapons.str");
+		murderWeaponsList = DataCreator.readFromFile("str/murderWeapons.str");
 		// Get victim state list
-		victimStatesList = DataCreator.readFromFile("victimStates.str");
+		victimStatesList = DataCreator.readFromFile("str/victimStates.str");
 		// Get murder locations list
-		locationsList = DataCreator.readFromFile("locations.str");
+		locationsList = DataCreator.readFromFile("str/locations.str");
 		// Get murderer states list
-		murdererStatesList = DataCreator.readFromFile("murdererStates.str");
+		murdererStatesList = DataCreator.readFromFile("str/murdererStates.str");
 		// Get names list
-		namesList = DataCreator.readFromFile("names.str");
+		namesList = DataCreator.readFromFile("str/names.str");
 		// Get motives list
-		motivesList = DataCreator.readFromFile("motives.str");
+		motivesList = DataCreator.readFromFile("str/motives.str");
 	}
 
 

@@ -18,4 +18,10 @@ public class Name {
 		return lastName;
 	}
 	
+	public String toString() {
+		String result = "";
+		result+= firstName + " " + lastName;
+		return result;
+	}
+	
 }
