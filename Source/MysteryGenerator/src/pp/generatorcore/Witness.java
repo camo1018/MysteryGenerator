@@ -6,7 +6,7 @@ public class Witness {
 	
 	public Witness() {
 		
-		perceivedEvent = new Event();
+		perceivedEvent = new Event(MurderGenerator.murdererName);
 		
 	}
 	

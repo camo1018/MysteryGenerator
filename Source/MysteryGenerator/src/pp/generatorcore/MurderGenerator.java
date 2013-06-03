@@ -25,8 +25,8 @@ public class MurderGenerator {
 	public static Time murderTime;
 	
 	// Constants
-	final private static int MIN_MURDERER_STATES_COUNT = 1; // Minimum number of states a victim could have.  If the number is too big, then it won't get there most likely.
-	final private static int MAX_MURDERER_STATES_COUNT = 3;
+	final public static int MIN_MURDERER_STATES_COUNT = 1; // Minimum number of states a victim could have.  If the number is too big, then it won't get there most likely.
+	final public static int MAX_MURDERER_STATES_COUNT = 3;
 	//final private static int MIN_VICTIM_STATES_COUNT = 5; // Minimum number of states a victim could have
 	//final private static int ADD_VICTIM_STATES_COUNT = 3; // Maximum number of states a victim could have over the minimum count
 	
@@ -43,7 +43,7 @@ public class MurderGenerator {
 		Random rand = new Random();
 		
 		ArrayList<StoryItem> filteredList = LogicHandler.getStoryItemsWithFollowingAttributeFromList("Type", "Wound", DataLoader.victimStatesList);
-		filteredList = LogicHandler.getStoryItemsWithFollowingAttributeFromList("Cause", murderWeapon.getMap().get("Cause"), filteredList);
+		filteredList = LogicHandler.getStoryItemsWithFollowingAttributeFromList("WoundType", murderWeapon.getMap().get("WoundType"), filteredList);
 		
 		// Choose a random wound from the filtered list
 		fatalWound = filteredList.get(rand.nextInt(filteredList.size()));
