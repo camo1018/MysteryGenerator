@@ -26,6 +26,8 @@ public class Event {
 	public Name murdererName;
 	public StoryItem murderMotive;
 	public Time murderTime;
+	
+	private Random rand;
 
 	// How 'ridiculous' is the event compared to the evidence and the real murder?
 	public int accuracy;
@@ -40,27 +42,31 @@ public class Event {
 		accuracy = 0;
 		this.murdererName = murdererName;
 		victimName = MurderGenerator.victimName;
+		rand = new Random();
 	}
 	
 	public Event(Name murdererName, Name victimName) {
 		accuracy = 0;
 		this.murdererName = murdererName;
 		this.victimName = victimName;
+		rand = new Random();
 	}
 
 	public Event(int accuracy, Name murdererName) {
 		this.accuracy = accuracy;
 		this.murdererName = murdererName;
 		victimName = MurderGenerator.victimName;
+		rand = new Random();
 	}
 	
 	public Event(int accuracy, Name murdererName, Name victimName) {
 		this.accuracy = accuracy;
 		this.murdererName = murdererName;
 		this.victimName = victimName;
+		rand = new Random();
 	}
 	
-	public void generateMurderWeapon() {
+	private void generateMurderWeapon() {
 		ArrayList<StoryItem> itemsList;
 		switch (accuracy) {
 		case 0:
@@ -77,12 +83,10 @@ public class Event {
 			break;
 		}
 
-		Random rand = new Random();
-
 		murderWeapon = itemsList.get(rand.nextInt(itemsList.size()));			
 	}
 
-	public void generateFatalWound() {
+	private void generateFatalWound() {
 		ArrayList<StoryItem> itemsList;
 		switch(accuracy) {
 		case 0:
@@ -101,12 +105,10 @@ public class Event {
 			break;
 		}
 
-		Random rand = new Random();
-
 		fatalWound = itemsList.get(rand.nextInt(itemsList.size()));
 	}
 
-	public void generateMurderLocation() {
+	private void generateMurderLocation() {
 		ArrayList<StoryItem> itemsList;
 		switch(accuracy) {
 		case 0:
@@ -123,13 +125,10 @@ public class Event {
 			break;
 		}
 
-		Random rand = new Random();
-
 		murderLocation = itemsList.get(rand.nextInt(itemsList.size()));
 	}
 
-	public void generateMurdererStates() {
-		Random rand = new Random();
+	private void generateMurdererStates() {
 		ArrayList <StoryItem> itemsList;
 		switch(accuracy) {
 		case 0:
@@ -170,19 +169,42 @@ public class Event {
 		murdererStates = itemsList;
 	}
 	
-	public void generateMurderMotive() {
+	private void generateMotives() {
 		// TODO: More context-specific motive selection
-		Random rand = new Random();
+		// For now, the witness just guesses a motive.
 		murderMotive = DataLoader.motivesList.get(rand.nextInt(DataLoader.motivesList.size()));		
 	}
 	
-	public void generateMurderTime() {
+	private void generateMurderTime() {
+		Time time = new Time(MurderGenerator.murderTime.getMonth(), MurderGenerator.murderTime.getDay(), MurderGenerator.murderTime.getHour(), MurderGenerator.murderTime.getMinute());
+		int minuteOffset;
 		switch(accuracy) {
 		case 0:
-			
+		case 1:
+			minuteOffset = rand.nextInt(21) - 10;
+		case 2:
+			minuteOffset = rand.nextInt(41) - 20;
+		case 3:
+			minuteOffset = rand.nextInt(61) - 30;
+		default:
+			minuteOffset = rand.nextInt(121) - 60;
 		}
+		time.addMinutes(minuteOffset);
+		time.toMultiplesOfFive();
+		murderTime = time;
 	}
 	
+	/**
+	 * Macro to generate all the circumstances of the murder.
+	 */
+	public void generateMurder() {
+		generateMurderWeapon();
+		generateFatalWound();
+		generateMurderLocation();
+		generateMurdererStates();
+		generateMotives();
+		generateMurderTime();
+	}
 	
 
 }

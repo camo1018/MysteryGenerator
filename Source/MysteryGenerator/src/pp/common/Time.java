@@ -44,6 +44,28 @@ public class Time {
 	*/
 	
 	/**
+	 * Add a specified number of minutes to time.  Supports negative integers as well.
+	 * @param minutes
+	 */
+	public void addMinutes(int minute) {
+		int minutesSum = this.minute + minute;
+		int hoursToAdd = minutesSum / 60;
+		
+		hour+= hoursToAdd;
+		this.minute = minutesSum % 60;
+	}
+	
+	/**
+	 * Converts the time into multiples of five, to make estimates 	
+	 */
+	public void toMultiplesOfFive() {
+		double multiple = (double)minute / 5.0;
+		int roundedMultiple = (int)Math.round(multiple);
+		
+		minute = 5 * roundedMultiple;
+	}
+	
+	/**
 	 * Given a month, generate a day that fits within that month.
 	 * @return
 	 */

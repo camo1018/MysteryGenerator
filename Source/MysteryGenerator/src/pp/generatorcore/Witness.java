@@ -4,11 +4,18 @@ public class Witness {
 
 	Event perceivedEvent; // What happened according to this witness
 	
-	public Witness() {
-		
-		perceivedEvent = new Event(MurderGenerator.murdererName);
+	public Witness() {		
 		
 	}
+	
+	private void generateEvent() {
+		perceivedEvent = new Event(MurderGenerator.murdererName);
+	}
+	
+	private void generateDialogue() {
+		
+	}
+	
 	
 	
 }

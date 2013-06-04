@@ -13,7 +13,8 @@ public class DataLoader {
 	public static ArrayList<StoryItem> murdererStatesList;
 	public static ArrayList<StoryItem> namesList;
 	public static ArrayList<StoryItem> motivesList;
-
+	public static ArrayList<StoryItem> dialoguesList;
+	
 	public static void loadAllFiles() {
 		// Get murder weapon list
 		murderWeaponsList = DataCreator.readFromFile("str/murderWeapons.str");
@@ -27,6 +28,8 @@ public class DataLoader {
 		namesList = DataCreator.readFromFile("str/names.str");
 		// Get motives list
 		motivesList = DataCreator.readFromFile("str/motives.str");
+		// Get dialogue list
+		dialoguesList = DataCreator.readFromFile("str/dialogues.str");
 	}
 
 
