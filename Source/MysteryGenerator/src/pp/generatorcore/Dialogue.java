@@ -67,11 +67,24 @@ public class Dialogue {
 	}
 	
 	private void getMurderMotiveDialogue() {
-		
+		ArrayList<StoryItem> itemsList = LogicHandler.getStoryItemsWithFollowingAttributeFromList("ConvType", "MurderMotive", dialoguesList);
+		StoryItem item = itemsList.get(rand.nextInt(itemsList.size()));
+		String text = item.getMap().get("Text");
+		String formattedText = this.getFormattedString(text);
+		dialoguesMap.put("MurderMotive", formattedText);
 	}
 	
 	private void getMurdererStatesDialogue() {
-		
+		ArrayList<StoryItem> itemsList = LogicHandler.getStoryItemsWithFollowingAttributeFromList("ConvType", "MurdererState", dialoguesList);
+		String combinedText = "";
+		for (StoryItem murdererState : MurderGenerator.murdererStates) {
+			String text = murdererState.getMap().get("Text");
+			text = this.getFormattedString(text, murdererState);
+			text += " ";
+			combinedText += text;
+		}
+		combinedText = combinedText.trim();
+		dialoguesMap.put("MurdererStates", combinedText);
 	}
 	
 	// Take in a string and replace the context tags with relevant text.
@@ -82,6 +95,15 @@ public class Dialogue {
 		editStr = editStr.replaceAll("{@MURDERWEAPON}", event.murderWeapon.getMap().get("Name"));
 		editStr = editStr.replaceAll("{@FATALWOUND}", event.fatalWound.getMap().get("Name"));
 		editStr = editStr.replaceAll("{@MURDERLOCATION}", event.murderLocation.getMap().get("Name"));
+		editStr = editStr.replaceAll("{@MURDERMOTIVE}", event.murderMotive.getMap().get("Name"));
+		
+		return editStr;
+	}
+	
+	private String getFormattedString(String string, StoryItem murdererState) {
+		String editStr = string;
+		editStr = this.getFormattedString(editStr);
+		editStr = editStr.replaceAll("{@MURDERERSTATE}", murdererState.getMap().get("Name"));
 		
 		return editStr;
 	}
