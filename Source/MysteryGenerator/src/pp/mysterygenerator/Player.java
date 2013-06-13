@@ -20,7 +20,7 @@ public class Player {
 	}
 	
 	public void setBitmap(Bitmap bitmap) {
-		
+		this.bitmap = bitmap;
 	}
 	
 	public int getX() {
