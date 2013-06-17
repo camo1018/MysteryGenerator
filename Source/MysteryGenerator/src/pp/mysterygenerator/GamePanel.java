@@ -12,11 +12,13 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
 	private GameThread thread;
 	private Player player;
+	private Level level;
 	
 	public GamePanel(Context context) {
 		super(context);
 		getHolder().addCallback(this);
 		player = new Player(BitmapFactory.decodeResource(getResources(), R.drawable.gumshoe_sprite), 50, 50);
+		level = new Level(BitmapFactory.decodeResource(getResources(), R.drawable.room));
 		thread = new GameThread(getHolder(), this);
 		setFocusable(true);
 	}
@@ -56,6 +58,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 	protected void onDraw(Canvas canvas) {
 		//canvas.drawBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.droid_1), 10, 10, null);
 		canvas.drawColor(Color.BLACK);
+		level.draw(canvas);
 		player.draw(canvas);
 	}
 	
